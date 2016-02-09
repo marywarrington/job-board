@@ -18,7 +18,7 @@
                     <form action='/job_postings'>
                         <div class='form-group'>
                           <label for='job_title'>Job Title:</label>
-                          <input id='job_title' name='job_title' class='form-control' type='number'>
+                          <input id='job_title' name='job_title' class='form-control' type='text'>
                         </div>
                         <div class='form-group'>
                           <label for='job_salary'>Job Salary:</label>
@@ -26,15 +26,15 @@
                         </div>
                         <div class='form-group'>
                           <label for='job_description'>Job Description:</label>
-                          <input id='job_description' name='job_description' class='form-control' type='number'>
+                          <input id='job_description' name='job_description' class='form-control' type='text'>
                         </div>
                         <div class='form-group'>
                           <label for='job_location'>Job Location:</label>
-                          <input id='job_location' name='job_location' class='form-control' type='number'>
+                          <input id='job_location' name='job_location' class='form-control' type='text'>
                         </div>
                         <div class='form-group'>
                           <label for='job_phone'>Contact Phone Number:</label>
-                          <input id='job_phone' name='job_phone' class='form-control' type='number'>
+                          <input id='job_phone' name='job_phone' class='form-control' type='text'>
                         </div>
                         <button type='submit' class='btn-success'>Create</button>
                     </form>
@@ -45,7 +45,22 @@
     });
 
     $app->get("/job_postings", function() {
-        
+        $my_job = new Job($_GET["job_title"], $_GET["job_salary"], $_GET["job_description"], $_GET["job_location"], $_GET["job_phone"]);
+
+        $output = "<div class='row'>
+                <div class='col-md-6'>
+                    <h2>" . $_GET["job_title"] . "</h2>
+                </div>
+                <div class='col-md-6'>
+                    <p>$" . $_GET["job_salary"] . "</p>
+                    <p>" . $_GET["job_description"] . "</p>
+                    <p>" . $_GET["job_location"] . "</p>
+                    <p>" . $_GET["job_phone"] . "</p>
+                </div>
+            </div>
+        ";
+         return $output;
+
     });
 
     return $app;
