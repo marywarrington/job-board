@@ -33,8 +33,16 @@
                           <input id='job_location' name='job_location' class='form-control' type='text'>
                         </div>
                         <div class='form-group'>
-                          <label for='job_phone'>Contact Phone Number:</label>
-                          <input id='job_phone' name='job_phone' class='form-control' type='text'>
+                          <label for='contact_name'>Your Full Name:</label>
+                          <input id='contact_name' name='contact_name' class='form-control' type='text'>
+                        </div>
+                        <div class='form-group'>
+                          <label for='contact_email'>Your Email:</label>
+                          <input id='contact_email' name='contact_email' class='form-control' type='text'>
+                        </div>
+                        <div class='form-group'>
+                          <label for='contact_phone'>Your Phone Number:</label>
+                          <input id='contact_phone' name='contact_phone' class='form-control' type='text'>
                         </div>
                         <button type='submit' class='btn-success'>Create</button>
                     </form>
@@ -45,7 +53,8 @@
     });
 
     $app->get("/job_postings", function() {
-        $my_job = new Job($_GET["job_title"], $_GET["job_salary"], $_GET["job_description"], $_GET["job_location"], $_GET["job_phone"]);
+        $new_contact = new Contact($_GET["contact_name"], $_GET["contact_email"], $_GET["contact_phone"]);
+        $my_job = new Job($_GET["job_title"], $_GET["job_salary"], $_GET["job_description"], $_GET["job_location"], $new_contact);
 
         $output = "<div class='row'>
                 <div class='col-md-6'>
@@ -55,7 +64,9 @@
                     <p>$" . $_GET["job_salary"] . "</p>
                     <p>" . $_GET["job_description"] . "</p>
                     <p>" . $_GET["job_location"] . "</p>
-                    <p>" . $_GET["job_phone"] . "</p>
+                    <p>" . $_GET["contact_name"] . "</p>
+                    <p>" . $_GET["contact_email"] . "</p>
+                    <p>" . $_GET["contact_phone"] . "</p>
                 </div>
             </div>
         ";
