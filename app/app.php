@@ -44,8 +44,8 @@
         ";
     });
 
-    $app->get("/", function() {
-        return "Hi there!";
+    $app->get("/job_postings", function() {
+        
     });
 
     return $app;
