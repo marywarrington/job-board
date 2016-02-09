@@ -1,6 +1,7 @@
 <?php
     require_once __DIR__."/../vendor/autoload.php";
-    require_once __DIR__."/../src/job_board.php";
+    require_once __DIR__."/../src/Job.php";
+    require_once __DIR__."/../src/Contact.php";
 
     $app = new Silex\Application();
 
@@ -58,15 +59,15 @@
 
         $output = "<div class='row'>
                 <div class='col-md-6'>
-                    <h2>" . $_GET["job_title"] . "</h2>
+                    <h2>" . $my_job->getTitle() . "</h2>
                 </div>
                 <div class='col-md-6'>
-                    <p>$" . $_GET["job_salary"] . "</p>
-                    <p>" . $_GET["job_description"] . "</p>
-                    <p>" . $_GET["job_location"] . "</p>
-                    <p>" . $_GET["contact_name"] . "</p>
-                    <p>" . $_GET["contact_email"] . "</p>
-                    <p>" . $_GET["contact_phone"] . "</p>
+                    <p>$" . $my_job->getSalary() . "</p>
+                    <p>" . $my_job->getDescription() . "</p>
+                    <p>" . $my_job->getLocation() . "</p>
+                    <p>" . $new_contact->getName() . "</p>
+                    <p>" . $new_contact->getEmail() . "</p>
+                    <p>" . $new_contact->getPhone() . "</p>
                 </div>
             </div>
         ";

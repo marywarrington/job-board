@@ -26,51 +26,24 @@ class Job
 
     function getTitle()
     {
-        $this->title;
+        return $this->title;
     }
     function getSalary()
     {
-        $this->salary;
+        return $this->salary;
     }
     function getDescription()
     {
-        $this->description;
+        return $this->description;
     }
     function getLocation()
     {
-        $this->location;
+        return $this->location;
     }
     function getContact()
     {
-        $this->contact_object;
+        return $this->contact_object;
     }
 
-}
-
-class Contact
-{
-    private $name;
-    private $email;
-    private $phone;
-
-    function __construct($contact_name, $contact_email, $contact_phone)
-    {
-        $this->name = $contact_name;
-        $this->email = $contact_email;
-        $this->phone = $contact_phone;
-    }
-
-    function getName()
-    {
-        $this->name;
-    }
-    function getEmail()
-    {
-        $this->email;
-    }
-    function getPhone()
-    {
-        $this->phone;
-    }
 }
 ?>
